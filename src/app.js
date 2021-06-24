@@ -5,7 +5,7 @@ const path = require('path')
 const express = require('express');
 const { response } = require('express');
 const e = require('express');
-
+const port=process.env.PORT || 3000
 
 //console.log(__dirname)
 //console.log(path.join(__dirname,'../public'))
@@ -60,7 +60,7 @@ app.get('/weather', (req, res) => {
                 error
             })
         }
-        forecast(latitude, longitude, (error, forecastData)=>{
+        forecast(latitude, longitude, (error, forecastData) =>{
             if(error){
                 return res.send({
                 error
@@ -137,6 +137,6 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(3000, () => {
-    console.log('the server is up and running')
+app.listen(port, () => {
+    console.log('the server is up and running'+ port)
 })
